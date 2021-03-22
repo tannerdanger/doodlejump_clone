@@ -2,13 +2,18 @@ import java.awt.*;
 
 public class Player extends Drawable {
     int myWidth, myHeight;
+    Image leftFacing, rightFacing;
 
-    public Player(int theX, int theY){
+    public Player(int theX, int theY, View theView){
         myX = theX;
         myY = theY;
-        myWidth= 24;
-        myHeight = 24;
-      //  myImg = Toolkit.getDefaultToolkit().getImage("img/")
+        rightFacing = Toolkit.getDefaultToolkit().getImage("img/doodleRight.png");
+        leftFacing = Toolkit.getDefaultToolkit().getImage("img/doodleLeft.png");
+        myImg = leftFacing;
+//        myWidth= 24;
+//        myHeight = 24;
+        myWidth= myImg.getWidth(theView);
+        myHeight = myImg.getHeight(theView);
     }
 
     public int getHeight(){
@@ -19,8 +24,9 @@ public class Player extends Drawable {
         return myWidth;
     }
 
-    public void draw(Graphics g){
+    public void draw(Graphics g, View v){
         g.setColor(Color.BLUE);
-        g.drawRect(myX, myY, myWidth, myHeight);
+        //g.drawRect(myX, myY, myWidth, myHeight);
+        g.drawImage(myImg, myX, myY, myImg.getHeight(v), myImg.getWidth(v), v);
     }
 }

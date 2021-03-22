@@ -49,7 +49,7 @@ public class Game extends JFrame {
 
     public void start(){
 
-        myPlayer = new Player(x,y);
+        myPlayer = new Player(x,y, myView);
         generatePlatforms();
 
 
@@ -72,6 +72,10 @@ public class Game extends JFrame {
 
         if(myPlayer.getY() > height){
             //todo: player fell off bottom of screen
+        }
+
+        if(myPlayer.getY() < 0){
+            //Generate new platforms
         }
 
         if(myPlayer.getY() < myBounceY - myBounceHeight ){
@@ -107,11 +111,13 @@ public class Game extends JFrame {
     public void playerLeft(){
         playerLeft = true;
         playerRight = false;
+        myPlayer.myImg = myPlayer.leftFacing;
     }
 
     public void playerRight(){
         playerLeft = false;
         playerRight = true;
+        myPlayer.myImg = myPlayer.rightFacing;
     }
 
     public void playerCenter(){
@@ -121,7 +127,9 @@ public class Game extends JFrame {
     }
 
 
-
+    public int getScore() {
+        return score;
+    }
 
     private void generatePlatforms() {
 

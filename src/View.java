@@ -48,7 +48,8 @@ public class View extends JPanel implements KeyListener {
     public void paintComponent(Graphics g){
         // clears old draw
         super.paintComponent(g);
-        myGame.myPlayer.draw(g);
+        g.drawString(myGame.getScore() + "", 10, 10);
+        myGame.myPlayer.draw(g, this);
         for(Platform p : myGame.platforms){
             p.draw(g);
         }

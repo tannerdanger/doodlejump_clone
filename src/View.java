@@ -51,7 +51,7 @@ public class View extends JPanel implements KeyListener {
         g.drawString(myGame.getScore() + "", 10, 10);
         myGame.myPlayer.draw(g, this);
         for(Platform p : myGame.platforms){
-            p.draw(g);
+            p.draw(g, this);
         }
     }
 }

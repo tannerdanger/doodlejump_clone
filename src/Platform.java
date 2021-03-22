@@ -6,8 +6,9 @@ public class Platform extends Drawable {
     public Platform(int theX, int theY){
         myX = theX;
         myY = theY;
-        myWidth= 56;
-        myHeight = 16;
+        myWidth= 58;
+        myHeight = 15;
+        myImg = Toolkit.getDefaultToolkit().getImage("img/platformGreen.png");
 
     }
 
@@ -45,11 +46,11 @@ public class Platform extends Drawable {
     }
 
 
-    @Override
-    public void draw(Graphics g){
+    public void draw(Graphics g, View v){
         g.setColor(Color.RED);
 
-        g.fillRect(myX, myY, myWidth, myHeight);
+        //g.fillRect(myX, myY, myWidth, myHeight);
+        g.drawImage(myImg, myX, myY, myWidth, myHeight, v);
     }
 
 

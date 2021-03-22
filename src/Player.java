@@ -12,8 +12,8 @@ public class Player extends Drawable {
         myImg = leftFacing;
 //        myWidth= 24;
 //        myHeight = 24;
-        myWidth= myImg.getWidth(theView);
-        myHeight = myImg.getHeight(theView);
+        myWidth= 60;
+        myHeight = 59;
     }
 
     public int getHeight(){
